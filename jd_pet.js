@@ -492,8 +492,8 @@ function requireConfig() {
     console.log('开始获取东东萌宠配置文件\n')
     notify = $.isNode() ? require('./sendNotify') : '';
     //Node.js用户请在jdCookie.js处填写京东ck;
-    const jdCookieNode = $.isNode() ? require('jdCookie.js') : '';
-    shareCodes = $.isNode() ? require('getShareCodes.js') : '';
+    const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+    shareCodes = $.isNode() ? require('./getShareCodes.js') : '';
     const jdPetShareCodes = $.isNode() ? shareCodes.getCodes("PETSHARECODES"): '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
