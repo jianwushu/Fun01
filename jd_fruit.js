@@ -1306,7 +1306,7 @@ function timeFormat(time) {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: `http://transfer.nz.lu/farm`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: ``, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
@@ -1334,11 +1334,10 @@ function shareCodesFormat() {
     if ($.shareCodesArr[0]) {
       newShareCodes = $.shareCodesArr[0].split('@');
     } else {
-      console.log(`您第${$.index}个京东账号未提供shareCode\n`)
+      newShareCodes = $.shareCodesArr[0].split('@');
     }
     const readShareCodeRes = null;
     if (readShareCodeRes && readShareCodeRes.code === 200) {
-      // newShareCodes = newShareCodes.concat(readShareCodeRes.data || []);
       newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
     }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify(newShareCodes)}`)

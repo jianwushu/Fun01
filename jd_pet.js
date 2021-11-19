@@ -476,7 +476,7 @@ function shareCodesFormat() {
     if ($.shareCodesArr[0]) {
       newShareCodes = $.shareCodesArr[0].split('@');
     } else {
-        newShareCodes = $.shareCodesArr[0].split('@');
+      newShareCodes = $.shareCodesArr[0].split('@');
     }
     //  读助力池助力码
     const readShareCodeRes = null;
