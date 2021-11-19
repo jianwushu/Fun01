@@ -448,7 +448,7 @@ async function showMsg() {
 }
 function readShareCode() {
   return new Promise(async resolve => {
-    $.get({url: `http://transfer.nz.lu/pet`, timeout: 10000}, (err, resp, data) => {
+    $.get({url: ``, timeout: 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(JSON.stringify(err))
@@ -473,14 +473,13 @@ function shareCodesFormat() {
   return new Promise(async resolve => {
     // console.log(`第${$.index}个京东账号的助力码:::${$.shareCodesArr[$.index - 1]}`)
     newShareCodes = [];
-    if ($.shareCodesArr[$.index - 1]) {
-      newShareCodes = $.shareCodesArr[$.index - 1].split('@');
+    if ($.shareCodesArr[0]) {
+      newShareCodes = $.shareCodesArr[0].split('@');
     } else {
-        newShareCodes = $.shareCodesArr[4].split('@');
+        newShareCodes = $.shareCodesArr[0].split('@');
     }
-    //因好友助力功能下线。故暂时屏蔽
+    //  读助力池助力码
     const readShareCodeRes = null;
-    //const readShareCodeRes = null;
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
     }
@@ -492,12 +491,10 @@ function requireConfig() {
   return new Promise(resolve => {
     console.log('开始获取东东萌宠配置文件\n')
     notify = $.isNode() ? require('./sendNotify') : '';
-    const shareCodes = $.isNode() ? require('./getShareCodes.js') : '';
-    const sc = shareCodes.getCodes("PETSHARECODES");
-    console.log(`${sc[0]}\n`)
     //Node.js用户请在jdCookie.js处填写京东ck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-    const jdPetShareCodes = $.isNode() ? require('./jdPetShareCodes.js') : '';
+    shareCodes = $.isNode() ? require('./getShareCodes.js') : '';
+    const jdPetShareCodes = $.isNode() ? shareCodes.getCodes("PETSHARECODES"): '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
@@ -521,8 +518,6 @@ function requireConfig() {
       if ($.getdata('jd_pet_inviter')) $.shareCodesArr = $.getdata('jd_pet_inviter').split('\n').filter(item => !!item);
       console.log(`\nBoxJs设置的${$.name}好友邀请码:${$.getdata('jd_pet_inviter') ? $.getdata('jd_pet_inviter') : '暂无'}\n`);
     }
-    // console.log(`$.shareCodesArr::${JSON.stringify($.shareCodesArr)}`)
-    // console.log(`jdPetShareArr账号长度::${$.shareCodesArr.length}`)
     console.log(`您提供了${$.shareCodesArr.length}个账号的东东萌宠助力码\n`);
     resolve()
   })
