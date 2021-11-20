@@ -585,7 +585,7 @@ function requireConfig() {
     //Node.js用户请在jdCookie.js处填写京东ck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     shareCodes = $.isNode() ? require('./getShareCodes.js') : '';
-    const jdPetShareCodes = $.isNode() ? shareCodes.getCodes("PLANT_BEAN_SHARECODES"): '';
+    const jdPlantBeanShareCodes = $.isNode() ? shareCodes.getCodes("PLANT_BEAN_SHARECODES"): '';
     //IOS等用户直接用NobyDa的jd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
