@@ -86,7 +86,7 @@ if ($.isNode()) {
                                 } else {
                                     continue;
                                 }
-                                if ($.count.finishCount = $.count.maxTaskCount) {
+                                if ($.count.finishCount == $.count.maxTaskCount) {
                                     console.log(`任务全部完成!`);
                                 }
                             }
@@ -143,7 +143,7 @@ function saveTaskRecord(ck, taskId, businessId, taskType) {
                     // console.log(data)
                     if (data) {
                         data = JSON.parse(data);
-                        // console.log(data,"获取id")
+                        console.log(data,"获取id")
                         if (data.content) {
                             $.sendBody = data.content
                         } else {
