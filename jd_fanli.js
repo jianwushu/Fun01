@@ -290,7 +290,7 @@ function getTaskList(ck) {
                 } else {
                     if (data) {
                         data = JSON.parse(data)
-                            // console.log(data,"活动列表")
+                            console.log(data,"活动列表")
                             if (data.content) {
                                 $.taskList = data.content
                             } else {
