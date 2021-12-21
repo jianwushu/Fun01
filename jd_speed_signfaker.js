@@ -1,26 +1,10 @@
 /*
 京东极速版签到+赚现金任务
-每日9毛左右，满3，10，120可兑换无门槛红包
+每日9毛左右，满3，10，50可兑换无门槛红包
 ⚠️⚠️⚠️一个号需要运行40分钟左右
 
-活动时间：长期
-活动入口：京东极速版app-现金签到
-已支持IOS双京东账号,Node.js支持N个京东账号
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-============Quantumultx===============
-[task_local]
-#京东极速版
-21 3,8 * * * https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js, tag=京东极速版, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
-
-================Loon==============
-[Script]
 cron "21 3,8 * * *" script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js,tag=京东极速版
 
-===============Surge=================
-京东极速版 = type=cron,cronexp="21 3,8 * * *",wake-system=1,timeout=33600,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js
-
-============小火箭=========
-京东极速版 = type=cron,script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js, cronexpr="21 3,8 * * *", timeout=33600, enable=true
 */
 const $ = new Env('京东极速版');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -79,16 +63,12 @@ async function jdGlobal() {
     await wheelsHome()
     await apTaskList()
     await wheelsHome()
-
-    // await signInit()
-    // await sign()
     await invite()
     await invite2()
     $.score = 0
     $.total = 0
     await taskList()
     await queryJoy()
-    // await signInit()
     await cash()
     await showMsg()
   } catch (e) {
@@ -110,7 +90,7 @@ async function signInit() {
     $.get(taskUrl('speedSignInit', {
       "activityId": "8a8fabf3cccb417f8e691b6774938bc2",
       "kernelPlatform": "RN",
-      "inviterId":"U44jAghdpW58FKgfqPdotA=="
+      "inviterId": "EiTTmXEZGqbkcDMdW2DC6w%3D%3D"
     }), async (err, resp, data) => {
       try {
         if (err) {
@@ -656,7 +636,7 @@ function taskGetUrl(function_id, body) {
       'Host': 'api.m.jd.com',
       'Accept': '*/*',
       'Connection': 'keep-alive',
-      'user-agent': $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').JS_USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      'user-agent': $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./JS_USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       'Accept-Language': 'zh-Hans-CN;q=1,en-CN;q=0.9',
       'Accept-Encoding': 'gzip, deflate, br',
       'Content-Type': "application/x-www-form-urlencoded",
@@ -666,7 +646,6 @@ function taskGetUrl(function_id, body) {
 }
 
 function invite2() {
-  let t = +new Date()
   let inviterIdArr = [
       "EiTTmXEZGqbkcDMdW2DC6w==",
       "SenyAxjhMVoFjkYBNbLTqw==",
@@ -677,15 +656,15 @@ function invite2() {
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
   let options = {
     url: "https://api.m.jd.com/",
-    body: `functionId=TaskInviteService&body=${JSON.stringify({"method":"participateInviteTask","data":{"channel":"1","encryptionInviterPin":encodeURIComponent(inviterId),"type":1}})}&appid=market-task-h5&uuid=&_t=${t}`,
+    body: `functionId=TaskInviteService&body=${JSON.stringify({"method":"participateInviteTask","data":{"channel":"1","encryptionInviterPin":encodeURIComponent(inviterId),"type":1}})}&appid=market-task-h5&uuid=&_t=${Date.now()}`,
     headers: {
       "Host": "api.m.jd.com",
       "Accept": "application/json, text/plain, */*",
       "Content-Type": "application/x-www-form-urlencoded",
-      "Origin": "https://gray.jd.com",
+      "Origin": "https://assignment.jd.com",
       "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').JS_USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
-      "Referer": "https://gray.jd.com/",
+      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./JS_USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "Referer": "https://assignment.jd.com/",
       "Accept-Encoding": "gzip, deflate, br",
       "Cookie": cookie
     }
@@ -698,7 +677,8 @@ function invite2() {
 function invite() {
   let t = +new Date()
   let inviterIdArr = [
-    "EiTTmXEZGqbkcDMdW2DC6w%3D%3D"
+      "EiTTmXEZGqbkcDMdW2DC6w==",
+      "SenyAxjhMVoFjkYBNbLTqw==",
   ]
   let inviterId = inviterIdArr[Math.floor((Math.random() * inviterIdArr.length))]
   let options = {
@@ -710,7 +690,7 @@ function invite() {
       "Content-type": "application/x-www-form-urlencoded",
       "Origin": "https://invite-reward.jd.com",
       "Accept-Language": "zh-CN,zh-Hans;q=0.9",
-      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').JS_USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
+      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./JS_USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       "Referer": 'https://invite-reward.jd.com/',
       "Accept-Encoding": "gzip, deflate, br",
       "Cookie": cookie
