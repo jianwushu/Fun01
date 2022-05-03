@@ -492,13 +492,7 @@ async function redPacket() {
         Accept: _0x1b03("43"),
         Origin: _0x1b03("44"),
         "Accept-Encoding": _0x1b03("45"),
-        "User-Agent": $[_0x1b03("0")]()
-          ? process[_0x1b03("8")][_0x1b03("46")]
-            ? process[_0x1b03("8")][_0x1b03("46")]
-            : require(_0x1b03("47"))[_0x1b03("48")]
-          : $[_0x1b03("10")](_0x1b03("49"))
-          ? $[_0x1b03("10")](_0x1b03("49"))
-          : _0x1b03("4a"),
+        "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
         "Accept-Language": _0x1b03("4b"),
         Referer: _0x1b03("4c"),
         Cookie: cookie,
@@ -815,13 +809,7 @@ function invite2() {
       "Content-Type": _0x1b03("62"),
       Origin: _0x1b03("8d"),
       "Accept-Language": _0x1b03("4b"),
-      "User-Agent": $[_0x1b03("0")]()
-        ? process[_0x1b03("8")][_0x1b03("46")]
-          ? process[_0x1b03("8")][_0x1b03("46")]
-          : require(_0x1b03("47"))[_0x1b03("48")]
-        : $[_0x1b03("10")](_0x1b03("49"))
-        ? $[_0x1b03("10")](_0x1b03("49"))
-        : _0x1b03("4a"),
+      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       Referer: _0x1b03("8e"),
       "Accept-Encoding": _0x1b03("45"),
       Cookie: cookie,
@@ -859,13 +847,7 @@ function invite() {
       "Content-type": _0x1b03("62"),
       Origin: _0x1b03("93"),
       "Accept-Language": _0x1b03("4b"),
-      "User-Agent": $[_0x1b03("0")]()
-        ? process[_0x1b03("8")][_0x1b03("46")]
-          ? process[_0x1b03("8")][_0x1b03("46")]
-          : require(_0x1b03("47"))[_0x1b03("48")]
-        : $[_0x1b03("10")](_0x1b03("49"))
-        ? $[_0x1b03("10")](_0x1b03("49"))
-        : _0x1b03("4a"),
+      "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       Referer: _0x1b03("94"),
       "Accept-Encoding": _0x1b03("45"),
       Cookie: cookie,
@@ -910,13 +892,7 @@ function taskGetUrl(_0x348a80, _0x5ed8e2) {
       Host: _0x1b03("42"),
       Accept: _0x1b03("63"),
       Connection: _0x1b03("64"),
-      "user-agent": $[_0x1b03("0")]()
-        ? process[_0x1b03("8")][_0x1b03("46")]
-          ? process[_0x1b03("8")][_0x1b03("46")]
-          : require(_0x1b03("47"))[_0x1b03("48")]
-        : $[_0x1b03("10")](_0x1b03("49"))
-        ? $[_0x1b03("10")](_0x1b03("49"))
-        : _0x1b03("4a"),
+      "user-agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       "Accept-Language": _0x1b03("99"),
       "Accept-Encoding": _0x1b03("45"),
       "Content-Type": _0x1b03("62"),
@@ -933,13 +909,7 @@ function TotalBean() {
         "\x41\x63\x63\x65\x70\x74": _0x1b03("63"),
         "\x43\x6f\x6e\x6e\x65\x63\x74\x69\x6f\x6e": _0x1b03("64"),
         "\x43\x6f\x6f\x6b\x69\x65": cookie,
-        "User-Agent": $[_0x1b03("0")]()
-          ? process[_0x1b03("8")][_0x1b03("9e")]
-            ? process[_0x1b03("8")][_0x1b03("9e")]
-            : require(_0x1b03("9f"))[_0x1b03("48")]
-          : $[_0x1b03("10")](_0x1b03("a0"))
-          ? $[_0x1b03("10")](_0x1b03("a0"))
-          : _0x1b03("a1"),
+        "User-Agent": $.isNode() ? (process.env.JS_USER_AGENT ? process.env.JS_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JSUA') ? $.getdata('JSUA') : "'jdltapp;iPad;3.1.0;14.4;network/wifi;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
         "Accept-Language": _0x1b03("a2"),
         Referer: _0x1b03("a3"),
         "Accept-Encoding": _0x1b03("45"),
