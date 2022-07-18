@@ -3,12 +3,12 @@
 cron 33 9 * * * jd_exchangejxbeans.js
 */
 const $ = new Env('临期京豆兑换为喜豆');
-const notify = $.isNode() ? require('./sendNotify') : '';
+const notify = $.isNode() ? require('../sendNotify') : '';
 
 //Node.js用户请在jdCookie.js处填写京东ck;
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+const jdCookieNode = $.isNode() ? require('../jdCookie.js') : '';
 
-const USER_AGENTS = require('./USER_AGENTS.js');
+const USER_AGENTS = require('../USER_AGENTS.js');
 
 let cookiesArr = [], cookie = '', message = '';
 let exjxbeans = true;
